@@ -678,7 +678,6 @@ footer {
      margin-top:0.2em;
      margin-bottom:0.2em;
   }
-
   .item#donors .text {
     -moz-column-count: 4;
     -moz-column-gap: 20px;
@@ -691,9 +690,9 @@ footer {
     color: #DFC272;
     width: 50em; }
   .item#donors h1 {
+    margin: auto;
+    width: 806px;
     white-space:nowrap;
-    -moz-column-span: all;
-    -webkit-column-span: all;
     color: #fff;
     padding-bottom: 0.5em;
     font: 48px/48px "museo-sans",Helvetica,Arial,sans-serif;}
