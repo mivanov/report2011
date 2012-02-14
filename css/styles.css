@@ -592,7 +592,129 @@ footer {
   .item#look_inside_denton_detail p {
      line-height: 1.4;
      margin-bottom: 1em; }
+  #denton_page_content_over_time {
+     height: 400px;
+     width: 400px; }
+.item#look_inside_triangle_intro {
+  background: url(../img/triangle_meetup_large.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 50px 0 550px 0; }
+  .item#look_inside_triangle_intro .text {
+    vertical-align: top;
+    margin-left: 30px;
+    font-family: "museo-sans",Helvetica,Arial,sans-serif;
+    color: #333;}
+  .item#look_inside_triangle_intro h1 {
+    color: #333;
+    font: 100 72px/72px "lato";
+    letter-spacing: -2px;
+    display: inline;
+    background-color: white;
+    opacity: 0.8;
+    line-height: 1.6;
+    padding: 0 0 0 0;
+    text-transform: uppercase; }
+.item#look_inside_triangle_detail {
+  background: #d800ff;
+  padding: 350px 0 350px 0; }
+  .item#look_inside_triangle_detail .text {
+    margin: 0 auto;
+    padding: 0 100px;
+    text-align: left;
+    font-family: "museo-sans",Helvetica,Arial,sans-serif;}
+  .item#look_inside_triangle_detail h1 {
+    color: #fff;
+    font: 800 64px/64px "open sans";
+    text-transform: uppercase; }
+    .item#look_inside_triangle_detail h1 span {
+      font: 400 60px/60px "gentium book basic";
+      font-style: italic;
+      text-transform: none; }
+  .item#look_inside_triangle_detail p {
+     line-height: 1.4;
+     margin-bottom: 1em; }
+  #triangle_page_content_over_time {
+     height: 400px;
+     width: 400px; }
 
+.item#where_helping {
+  background: #fcfaf2;
+  color: #333;
+  font-family: "open sans";
+  padding: 350px 0 350px 0; }
+  .item#where_helping .text {
+    margin: 0 auto;
+    padding: 0 100px;
+    text-align: center;
+    width: 800; }
+  .item#where_helping h1 {
+    color: #333;
+    font: 800 64px/64px "open sans";
+    margin-bottom: 1em;
+    text-transform: uppercase; }
+    .item#where_helping h1 span {
+      font: 400 60px/60px "gentium book basic";
+      font-style: italic;
+      text-transform: none; }
+  .item#where_helping img {
+    border: 3px solid #7c7c7c; }
+.item#donors {
+  background: #AD0918;
+  padding: 350px 0 350px 0; }
+  .item#donors .text {
+    margin: 0 auto;
+    padding: 0 100px;
+    font-family: "museo-sans",Helvetica,Arial,sans-serif;
+    text-align: left;
+    color: #DFC272;
+    width: 40em; }
+  .item#donors h1 {
+    color: #fff;
+    padding-bottom: 0.5em;
+    font: 48px/48px "museo-sans",Helvetica,Arial,sans-serif;}
+  .item#donors p {
+    line-height: 1.4;
+    margin-bottom: 1em;
+  }
+.item#thanks {
+  background: #0ac5f4;
+  padding: 350px 0 350px 0; }
+  .item#thanks .text {
+    margin: 0 auto;
+    padding: 0 100px;
+    text-align: center;
+    width: 800; }
+  .item#thanks h1 {
+    color: #fff;
+    font: 100 72px/72px "lato";
+    letter-spacing: -2px;
+    text-transform: uppercase; }
+    .item#thanks h1 .kern {
+      margin: 0 0 0 8px; }
+.item#donate {
+  background: #fcfaf2;
+  color: #333;
+  font-family: "open sans";
+  padding: 350px 0 350px 0; }
+  .item#donate .text {
+    margin: 0 auto;
+    padding: 0 100px;
+    text-align: center;
+    width: 800; }
+  .item#donate h1 {
+    color: #333;
+    font: 800 64px/64px "open sans";
+    margin-bottom: 1em;
+    text-transform: uppercase; }
+    .item#donate h1 span {
+      font: 400 60px/60px "gentium book basic";
+      font-style: italic;
+      text-transform: none; }
+  .item#donate .wepay_donations_widget_main {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2em;}
 
 .item#nietzsche {
   background: #ef4723;
