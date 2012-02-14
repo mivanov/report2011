@@ -87,6 +87,14 @@ footer {
       footer p a:hover {
         color: #000; }
 
+#logo {
+  background-color: #f4f4f4;
+  padding: 20px 0 18px 0; }
+  #logo div {
+    margin: 0 auto;
+    padding-left: 1px;
+    width: 800px; }
+
 .item#title {
   background: #fff;
   padding: 125px 0 250px 0; }
