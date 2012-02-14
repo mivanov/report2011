@@ -674,18 +674,22 @@ footer {
 .item#donors {
   background: #AD0918;
   padding: 350px 0 350px 0; }
+  .item#donors li {
+     margin-top:0.2em;
+     margin-bottom:0.2em;
+  }
 
   .item#donors .text {
     -moz-column-count: 4;
-    -moz-column-gap: 50px;
+    -moz-column-gap: 20px;
     -webkit-column-count: 4;
-    -webkit-column-gap: 50px; 
+    -webkit-column-gap: 20px; 
     margin: 0 auto;
     padding: 0 100px;
     font-family: "museo-sans",Helvetica,Arial,sans-serif;
     text-align: left;
     color: #DFC272;
-    width: 40em; }
+    width: 50em; }
   .item#donors h1 {
     white-space:nowrap;
     -moz-column-span: all;
@@ -693,6 +697,14 @@ footer {
     color: #fff;
     padding-bottom: 0.5em;
     font: 48px/48px "museo-sans",Helvetica,Arial,sans-serif;}
+    .item#donors ul {
+    margin-bottom: 1em;}
+.item#donors h2 {
+    white-space:nowrap;
+    color: #fff;
+    padding-bottom: 0.5em;
+    font-weight: 700;
+    font: 16px/16px "museo-sans",Helvetica,Arial,sans-serif;}
   .item#donors p {
     line-height: 1.4;
     margin-bottom: 1em;
