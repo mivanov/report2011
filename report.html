@@ -12,6 +12,31 @@
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="js/jquery.flot.js"></script>
     <script type="text/javascript" src="js/jquery.flot.navigate.js"></script>
+    <script type="text/javascript" src="js/bgstretcher.js"></script>
+    <script type="text/javascript" src="js/jquery.imagefit.js"></script>
+    <script type="text/javascript">
+	$(function(){
+        /*
+        //  Initialize Backgound Stretcher	   
+		$('#look_inside_denton_intro').bgStretcher({
+			images: ['img/dentonwiki_people.jpg'],
+			imageWidth: 1824, 
+			imageHeight: 1368, 
+			anchoring: 'left center',
+			anchoringImg: 'left center'
+		});
+        $('#look_inside_dwiki').bgStretcher({
+			images: ['img/davis_protest.jpg'],
+			imageWidth: 2000, 
+			imageHeight: 1500, 
+			anchoring: 'left center',
+			anchoringImg: 'left center'
+		});
+	    */	
+        $('#look_inside_denton_intro,#look_inside_dwiki,#look_inside_triangle_intro').imagefit();
+	});
+    </script>
+
   </head>
 
   <body class="index">
@@ -320,6 +345,7 @@ We knew that mapping should be at the heart of LocalWiki.  To that end, we devel
           <section class="text">
               <h1>UC Davis<br/> Pepperspraying:<br/> A local wiki responds</h1>
           </section>
+          <img src="img/davis_protest.jpg" width="2000" height="1500" />
         </section>
         <div id="dwiki_photo_attribution">Photo CC-By-SA <a
           href="http://publiclaboratory.org/notes/micheletobias/11-21-2011/occupy-uc-davis-nov-21-2011">Public
@@ -359,6 +385,7 @@ During the week of the event, over 25,000 people visited pages on DavisWiki rela
           <section class="text">
               <h1>A look inside what's new: DentonWiki.org</h1>
           </section>
+          <img src="img/dentonwiki_people.jpg" width="1824" height="1176" />
         </section>
 
         <section class="item" id="look_inside_denton_detail">
@@ -423,6 +450,7 @@ and graphs of edits, etc over time.
           <section class="text">
               <h1>A look inside what's to come: TriangleWiki.org</h1>
           </section>
+          <img src="img/triangle_meetup_large.jpg" width="1824" height="1362"/>
         </section>
 
         <section class="item" id="look_inside_triangle_detail">
@@ -458,16 +486,16 @@ $(function () {
           <section class="stats">
             <h2>Triangle crap here:</h2>
             <div class="number">
-            25,000 
-                <div class="type">People visted pepperspray-related pages</div>
+            467
+                <div class="type">Pages</div>
             </div>
             <div class="number">
-            700
-                <div class="type">Edits to the page about the incident</div>
+            540
+                <div class="type">Files</div>
             </div>
             <div class="number">
-            100
-                <div class="type">People edited the page about the incident</div>
+            175
+                <div class="type">Maps</div>
             </div>
           </section>
 

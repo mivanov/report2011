@@ -489,14 +489,18 @@ footer {
     letter-spacing: -2px;
     text-transform: uppercase; }
 .item#look_inside_dwiki {
-  background: url(../img/davis_protest.jpg);
+  /*background: url(../img/davis_protest.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
-  padding: 50px 0 450px 0; }
+  padding-bottom: 350px; }
+  */
+  }
   .item#look_inside_dwiki .text {
+    position: absolute;
     padding-left: 4em;
+    padding-top: 2em;
     height: 100%;
-    margin-top: auto;
+    margin-top: 2em;
     display: block;
     margin-bottom: auto;
     font-family: "museo-sans",Helvetica,Arial,sans-serif;
@@ -554,12 +558,15 @@ footer {
      line-height: 1.4;
      margin-bottom: 1em; }
 .item#look_inside_denton_intro {
-  background: url(../img/dentonwiki_people.jpg);
+  /*background: url(../img/dentonwiki_people.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
-  padding: 50px 0 550px 0; }
+  */
+  }
   .item#look_inside_denton_intro .text {
+    position: absolute;
     vertical-align: top;
+    padding-top: 2em;
     margin-left: 30px;
     font-family: "museo-sans",Helvetica,Arial,sans-serif;
     color: #333;}
@@ -596,12 +603,16 @@ footer {
      height: 400px;
      width: 400px; }
 .item#look_inside_triangle_intro {
-  background: url(../img/triangle_meetup_large.jpg);
+  /*background: url(../img/triangle_meetup_large.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
   padding: 50px 0 550px 0; }
+  */
+  }
   .item#look_inside_triangle_intro .text {
+    position: absolute;
     vertical-align: top;
+    margin-top: 2em;
     margin-left: 30px;
     font-family: "museo-sans",Helvetica,Arial,sans-serif;
     color: #333;}
