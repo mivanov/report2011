@@ -130,6 +130,7 @@ footer {
         color: #222;
         font-weight: 700; }
 .item#mission{
+  text-align: center;
   background: #fcfaf2;
   padding: 350px 0 350px 0; }
   .item#mission .text {
@@ -673,7 +674,12 @@ footer {
 .item#donors {
   background: #AD0918;
   padding: 350px 0 350px 0; }
+
   .item#donors .text {
+    -moz-column-count: 4;
+    -moz-column-gap: 50px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 50px; 
     margin: 0 auto;
     padding: 0 100px;
     font-family: "museo-sans",Helvetica,Arial,sans-serif;
@@ -681,6 +687,9 @@ footer {
     color: #DFC272;
     width: 40em; }
   .item#donors h1 {
+    white-space:nowrap;
+    -moz-column-span: all;
+    -webkit-column-span: all;
     color: #fff;
     padding-bottom: 0.5em;
     font: 48px/48px "museo-sans",Helvetica,Arial,sans-serif;}
@@ -722,10 +731,20 @@ footer {
       font: 400 60px/60px "gentium book basic";
       font-style: italic;
       text-transform: none; }
+  .item#donate form {
+      margin-bottom: 1em;
+   }
+  .item#donate div.suggested_amount {
+      line-height: 1.5;
+  }
   .item#donate .wepay_donations_widget_main {
       margin-left: auto;
       margin-right: auto;
-      margin-top: 2em;}
+      margin-top: 2em;
+   }
+   .item#donate div.widget-inner>div.widget-item {
+	display: none;	
+	}
 
 .item#nietzsche {
   background: #ef4723;
