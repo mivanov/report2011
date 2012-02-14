@@ -97,15 +97,16 @@ footer {
 
 .item#title {
   background: #fff;
-  padding: 125px 0 250px 0; }
+  padding: 100px 0 250px 0; }
   .item#title .text {
     margin: 0 auto;
     width: 800px; }
   .item#title h1 {
-    color: #000;
-    font: 400 87px/84px Abril Fatface; }
-    .item#title h1 span.kern {
-      margin: 0 0 0 -10px; }
+    color: #2f2f2f;
+    font-family: "myriad-pro",sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 100px; }
   .item#title h2 {
     color: #222;
     font: 300 18px/24px "open sans";
@@ -139,15 +140,18 @@ footer {
         font-weight: 700; }
 .item#mission{
   text-align: center;
-  background: #fcfaf2;
+  background: #f4f4f4;
   padding: 350px 0 350px 0; }
   .item#mission .text {
     margin: 0 auto;
-    padding: 0 100px;
+    padding: 100px;
+    background-color: white;
     width: 820px; }
   .item#mission h1 {
     color: #333;
-    font: 400 40px/60px "vollkorn";
+    font-family: "ff-meta-web-pro", Arial, "Helvetica Neue", sans-serif;
+    line-height: 1.5;
+    font-size: 40px;
     margin: 0 0 10px 0;
     text-indent: -6px; }
 .item#overview {
