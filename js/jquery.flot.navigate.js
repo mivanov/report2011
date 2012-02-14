@@ -84,27 +84,480 @@ range, so 1 is 100% (i.e. no change), 1.5 is 150% (zoom in), 0.7 is
 // jquery.mousewheel.js, we put them inline here to save people the
 // effort of downloading them.
 
-/*
-jquery.event.drag.js ~ v1.5 ~ Copyright (c) 2008, Three Dub Media (http://threedubmedia.com)  
-Licensed under the MIT License ~ http://threedubmedia.googlecode.com/files/MIT-LICENSE.txt
-*/
-(function(E){E.fn.drag=function(L,K,J){if(K){this.bind("dragstart",L)}if(J){this.bind("dragend",J)}return !L?this.trigger("drag"):this.bind("drag",K?K:L)};var A=E.event,B=A.special,F=B.drag={not:":input",distance:0,which:1,dragging:false,setup:function(J){J=E.extend({distance:F.distance,which:F.which,not:F.not},J||{});J.distance=I(J.distance);A.add(this,"mousedown",H,J);if(this.attachEvent){this.attachEvent("ondragstart",D)}},teardown:function(){A.remove(this,"mousedown",H);if(this===F.dragging){F.dragging=F.proxy=false}G(this,true);if(this.detachEvent){this.detachEvent("ondragstart",D)}}};B.dragstart=B.dragend={setup:function(){},teardown:function(){}};function H(L){var K=this,J,M=L.data||{};if(M.elem){K=L.dragTarget=M.elem;L.dragProxy=F.proxy||K;L.cursorOffsetX=M.pageX-M.left;L.cursorOffsetY=M.pageY-M.top;L.offsetX=L.pageX-L.cursorOffsetX;L.offsetY=L.pageY-L.cursorOffsetY}else{if(F.dragging||(M.which>0&&L.which!=M.which)||E(L.target).is(M.not)){return }}switch(L.type){case"mousedown":E.extend(M,E(K).offset(),{elem:K,target:L.target,pageX:L.pageX,pageY:L.pageY});A.add(document,"mousemove mouseup",H,M);G(K,false);F.dragging=null;return false;case !F.dragging&&"mousemove":if(I(L.pageX-M.pageX)+I(L.pageY-M.pageY)<M.distance){break}L.target=M.target;J=C(L,"dragstart",K);if(J!==false){F.dragging=K;F.proxy=L.dragProxy=E(J||K)[0]}case"mousemove":if(F.dragging){J=C(L,"drag",K);if(B.drop){B.drop.allowed=(J!==false);B.drop.handler(L)}if(J!==false){break}L.type="mouseup"}case"mouseup":A.remove(document,"mousemove mouseup",H);if(F.dragging){if(B.drop){B.drop.handler(L)}C(L,"dragend",K)}G(K,true);F.dragging=F.proxy=M.elem=false;break}return true}function C(M,K,L){M.type=K;var J=E.event.handle.call(L,M);return J===false?false:J||M.result}function I(J){return Math.pow(J,2)}function D(){return(F.dragging===false)}function G(K,J){if(!K){return }K.unselectable=J?"off":"on";K.onselectstart=function(){return J};if(K.style){K.style.MozUserSelect=J?"":"none"}}})(jQuery);
+/*! 
+ * jquery.event.drag - v 2.0.0 
+ * Copyright (c) 2010 Three Dub Media - http://threedubmedia.com
+ * Open Source MIT License - http://threedubmedia.com/code/license
+ */
+// Created: 2008-06-04 
+// Updated: 2010-06-07
+// REQUIRES: jquery 1.4.2+
+
+(function( $ ){
+
+// add the jquery instance method
+$.fn.drag = function( str, arg, opts ){
+	// figure out the event type
+	var type = typeof str == "string" ? str : "",
+	// figure out the event handler...
+	fn = $.isFunction( str ) ? str : $.isFunction( arg ) ? arg : null;
+	// fix the event type
+	if ( type.indexOf("drag") !== 0 ) 
+		type = "drag"+ type;
+	// were options passed
+	opts = ( str == fn ? arg : opts ) || {};
+	// trigger or bind event handler
+	return fn ? this.bind( type, opts, fn ) : this.trigger( type );
+};
+
+// local refs (increase compression)
+var $event = $.event, 
+$special = $event.special,
+// configure the drag special event 
+drag = $special.drag = {
+	
+	// these are the default settings
+	defaults: {
+		which: 1, // mouse button pressed to start drag sequence
+		distance: 0, // distance dragged before dragstart
+		not: ':input', // selector to suppress dragging on target elements
+		handle: null, // selector to match handle target elements
+		relative: false, // true to use "position", false to use "offset"
+		drop: true, // false to suppress drop events, true or selector to allow
+		click: false // false to suppress click events after dragend (no proxy)
+	},
+	
+	// the key name for stored drag data
+	datakey: "dragdata",
+	
+	// the namespace for internal live events
+	livekey: "livedrag",
+	
+	// count bound related events
+	add: function( obj ){ 
+		// read the interaction data
+		var data = $.data( this, drag.datakey ),
+		// read any passed options 
+		opts = obj.data || {};
+		// count another realted event
+		data.related += 1;
+		// bind the live "draginit" delegator
+		if ( !data.live && obj.selector ){
+			data.live = true;
+			$event.add( this, "draginit."+ drag.livekey, drag.delegate );
+		}
+		// extend data options bound with this event
+		// don't iterate "opts" in case it is a node 
+		$.each( drag.defaults, function( key, def ){
+			if ( opts[ key ] !== undefined )
+				data[ key ] = opts[ key ];
+		});
+	},
+	
+	// forget unbound related events
+	remove: function(){
+		$.data( this, drag.datakey ).related -= 1;
+	},
+	
+	// configure interaction, capture settings
+	setup: function(){
+		// check for related events
+		if ( $.data( this, drag.datakey ) ) 
+			return;
+		// initialize the drag data with copied defaults
+		var data = $.extend({ related:0 }, drag.defaults );
+		// store the interaction data
+		$.data( this, drag.datakey, data );
+		// bind the mousedown event, which starts drag interactions
+		$event.add( this, "mousedown", drag.init, data );
+		// prevent image dragging in IE...
+		if ( this.attachEvent ) 
+			this.attachEvent("ondragstart", drag.dontstart ); 
+	},
+	
+	// destroy configured interaction
+	teardown: function(){
+		// check for related events
+		if ( $.data( this, drag.datakey ).related ) 
+			return;
+		// remove the stored data
+		$.removeData( this, drag.datakey );
+		// remove the mousedown event
+		$event.remove( this, "mousedown", drag.init );
+		// remove the "live" delegation
+		$event.remove( this, "draginit", drag.delegate );
+		// enable text selection
+		drag.textselect( true ); 
+		// un-prevent image dragging in IE...
+		if ( this.detachEvent ) 
+			this.detachEvent("ondragstart", drag.dontstart ); 
+	},
+		
+	// initialize the interaction
+	init: function( event ){
+		// the drag/drop interaction data
+		var dd = event.data, results;
+		// check the which directive
+		if ( dd.which > 0 && event.which != dd.which ) 
+			return; 
+		// check for suppressed selector
+		if ( $( event.target ).is( dd.not ) ) 
+			return;
+		// check for handle selector
+		if ( dd.handle && !$( event.target ).closest( dd.handle, event.currentTarget ).length ) 
+			return;
+		// store/reset some initial attributes
+		dd.propagates = 1;
+		dd.interactions = [ drag.interaction( this, dd ) ];
+		dd.target = event.target;
+		dd.pageX = event.pageX;
+		dd.pageY = event.pageY;
+		dd.dragging = null;
+		// handle draginit event... 
+		results = drag.hijack( event, "draginit", dd );
+		// early cancel
+		if ( !dd.propagates )
+			return;
+		// flatten the result set
+		results = drag.flatten( results );
+		// insert new interaction elements
+		if ( results && results.length ){
+			dd.interactions = [];
+			$.each( results, function(){
+				dd.interactions.push( drag.interaction( this, dd ) );
+			});
+		}
+		// remember how many interactions are propagating
+		dd.propagates = dd.interactions.length;
+		// locate and init the drop targets
+		if ( dd.drop !== false && $special.drop ) 
+			$special.drop.handler( event, dd );
+		// disable text selection
+		drag.textselect( false ); 
+		// bind additional events...
+		$event.add( document, "mousemove mouseup", drag.handler, dd );
+		// helps prevent text selection
+		return false;
+	},	
+	// returns an interaction object
+	interaction: function( elem, dd ){
+		return {
+			drag: elem, 
+			callback: new drag.callback(), 
+			droppable: [],
+			offset: $( elem )[ dd.relative ? "position" : "offset" ]() || { top:0, left:0 }
+		};
+	},
+	// handle drag-releatd DOM events
+	handler: function( event ){ 
+		// read the data before hijacking anything
+		var dd = event.data;
+		// handle various events
+		switch ( event.type ){
+			// mousemove, check distance, start dragging
+			case !dd.dragging && 'mousemove': 
+				//  drag tolerance, x² + y² = distance²
+				if ( Math.pow(  event.pageX-dd.pageX, 2 ) + Math.pow(  event.pageY-dd.pageY, 2 ) < Math.pow( dd.distance, 2 ) ) 
+					break; // distance tolerance not reached
+				event.target = dd.target; // force target from "mousedown" event (fix distance issue)
+				drag.hijack( event, "dragstart", dd ); // trigger "dragstart"
+				if ( dd.propagates ) // "dragstart" not rejected
+					dd.dragging = true; // activate interaction
+			// mousemove, dragging
+			case 'mousemove': 
+				if ( dd.dragging ){
+					// trigger "drag"		
+					drag.hijack( event, "drag", dd );
+					if ( dd.propagates ){
+						// manage drop events
+						if ( dd.drop !== false && $special.drop )
+							$special.drop.handler( event, dd ); // "dropstart", "dropend"
+						break; // "drag" not rejected, stop		
+					}
+					event.type = "mouseup"; // helps "drop" handler behave
+				}
+			// mouseup, stop dragging
+			case 'mouseup': 
+				$event.remove( document, "mousemove mouseup", drag.handler ); // remove page events
+				if ( dd.dragging ){
+					if ( dd.drop !== false && $special.drop ) 
+						$special.drop.handler( event, dd ); // "drop"
+					drag.hijack( event, "dragend", dd ); // trigger "dragend"	
+					}
+				drag.textselect( true ); // enable text selection
+				
+				// if suppressing click events...
+				if ( dd.click === false && dd.dragging ){
+					jQuery.event.triggered = true;
+					setTimeout(function(){
+						jQuery.event.triggered = false;
+					}, 20 );
+				dd.dragging = false; // deactivate element	
+				}
+				break;
+		}
+	},
+	
+	// identify potential delegate elements
+	delegate: function( event ){
+		// local refs
+		var elems = [], target, 
+		// element event structure
+		events = $.data( this, "events" ) || {};
+		// query live events
+		$.each( events.live || [], function( i, obj ){
+			// no event type matches
+			if ( obj.preType.indexOf("drag") !== 0 )
+				return;
+			// locate the element to delegate
+			target = $( event.target ).closest( obj.selector, event.currentTarget )[0];
+			// no element found
+			if ( !target ) 
+				return;
+			// add an event handler
+			$event.add( target, obj.origType+'.'+drag.livekey, obj.origHandler, obj.data );
+			// remember new elements
+			if ( $.inArray( target, elems ) < 0 )
+				elems.push( target );		
+		});
+		// if there are no elements, break
+		if ( !elems.length ) 
+			return false;
+		// return the matched results, and clenup when complete		
+		return $( elems ).bind("dragend."+ drag.livekey, function(){
+			$event.remove( this, "."+ drag.livekey ); // cleanup delegation
+		});
+	},
+	
+	// re-use event object for custom events
+	hijack: function( event, type, dd, x, elem ){
+		// not configured
+		if ( !dd ) 
+			return;
+		// remember the original event and type
+		var orig = { event:event.originalEvent, type: event.type },
+		// is the event drag related or drog related?
+		mode = type.indexOf("drop") ? "drag" : "drop",
+		// iteration vars
+		result, i = x || 0, ia, $elems, callback,
+		len = !isNaN( x ) ? x : dd.interactions.length;
+		// modify the event type
+		event.type = type;
+		// remove the original event
+		event.originalEvent = null;
+		// initialize the results
+		dd.results = [];
+		// handle each interacted element
+		do if ( ia = dd.interactions[ i ] ){
+			// validate the interaction
+			if ( type !== "dragend" && ia.cancelled )
+				continue;
+			// set the dragdrop properties on the event object
+			callback = drag.properties( event, dd, ia );
+			// prepare for more results
+			ia.results = [];
+			// handle each element
+			$( elem || ia[ mode ] || dd.droppable ).each(function( p, subject ){
+				// identify drag or drop targets individually
+				callback.target = subject;
+				// handle the event	
+				result = subject ? $event.handle.call( subject, event, callback ) : null;
+				// stop the drag interaction for this element
+				if ( result === false ){
+					if ( mode == "drag" ){
+						ia.cancelled = true;
+						dd.propagates -= 1;
+					}
+					if ( type == "drop" ){
+						ia[ mode ][p] = null;
+					}
+				}
+				// assign any dropinit elements
+				else if ( type == "dropinit" )
+					ia.droppable.push( drag.element( result ) || subject );
+				// accept a returned proxy element 
+				if ( type == "dragstart" )
+					ia.proxy = $( drag.element( result ) || ia.drag )[0];
+				// remember this result	
+				ia.results.push( result );
+				// forget the event result, for recycling
+				delete event.result;
+				// break on cancelled handler
+				if ( type !== "dropinit" )
+					return result;
+			});	
+			// flatten the results	
+			dd.results[ i ] = drag.flatten( ia.results );	
+			// accept a set of valid drop targets
+			if ( type == "dropinit" )
+				ia.droppable = drag.flatten( ia.droppable );
+			// locate drop targets
+			if ( type == "dragstart" && !ia.cancelled )
+				callback.update(); 
+		}
+		while ( ++i < len )
+		// restore the original event & type
+		event.type = orig.type;
+		event.originalEvent = orig.event;
+		// return all handler results
+		return drag.flatten( dd.results );
+	},
+		
+	// extend the callback object with drag/drop properties...
+	properties: function( event, dd, ia ){		
+		var obj = ia.callback;
+		// elements
+		obj.drag = ia.drag;
+		obj.proxy = ia.proxy || ia.drag;
+		// starting mouse position
+		obj.startX = dd.pageX;
+		obj.startY = dd.pageY;
+		// current distance dragged
+		obj.deltaX = event.pageX - dd.pageX;
+		obj.deltaY = event.pageY - dd.pageY;
+		// original element position
+		obj.originalX = ia.offset.left;
+		obj.originalY = ia.offset.top;
+		// adjusted element position
+		obj.offsetX = event.pageX - ( dd.pageX - obj.originalX );
+		obj.offsetY = event.pageY - ( dd.pageY - obj.originalY );
+		// assign the drop targets information
+		obj.drop = drag.flatten( ( ia.drop || [] ).slice() );
+		obj.available = drag.flatten( ( ia.droppable || [] ).slice() );
+		return obj;	
+	},
+	
+	// determine is the argument is an element or jquery instance
+	element: function( arg ){
+		if ( arg && ( arg.jquery || arg.nodeType == 1 ) )
+			return arg;
+	},
+	
+	// flatten nested jquery objects and arrays into a single dimension array
+	flatten: function( arr ){
+		return $.map( arr, function( member ){
+			return member && member.jquery ? $.makeArray( member ) : 
+				member && member.length ? drag.flatten( member ) : member;
+		});
+	},
+	
+	// toggles text selection attributes ON (true) or OFF (false)
+	textselect: function( bool ){ 
+		$( document )[ bool ? "unbind" : "bind" ]("selectstart", drag.dontstart )
+			.attr("unselectable", bool ? "off" : "on" )
+			.css("MozUserSelect", bool ? "" : "none" );
+	},
+	
+	// suppress "selectstart" and "ondragstart" events
+	dontstart: function(){ 
+		return false; 
+	},
+	
+	// a callback instance contructor
+	callback: function(){}
+	
+};
+
+// callback methods
+drag.callback.prototype = {
+	update: function(){
+		if ( $special.drop && this.available.length )
+			$.each( this.available, function( i ){
+				$special.drop.locate( this, i );
+			});
+	}
+};
+
+// share the same special event configuration with related events...
+$special.draginit = $special.dragstart = $special.dragend = drag;
+
+})( jQuery );
 
 
-/* jquery.mousewheel.min.js
- * Copyright (c) 2009 Brandon Aaron (http://brandonaaron.net)
- * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
- * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+/*! Copyright (c) 2011 Brandon Aaron (http://brandonaaron.net)
+ * Licensed under the MIT License (LICENSE.txt).
+ *
  * Thanks to: http://adomas.org/javascript-mouse-wheel/ for some pointers.
  * Thanks to: Mathias Bank(http://www.mathias-bank.de) for a scope bug fix.
+ * Thanks to: Seamus Leahy for adding deltaX and deltaY
  *
- * Version: 3.0.2
+ * Version: 3.0.6
  * 
  * Requires: 1.2.2+
  */
-(function(c){var a=["DOMMouseScroll","mousewheel"];c.event.special.mousewheel={setup:function(){if(this.addEventListener){for(var d=a.length;d;){this.addEventListener(a[--d],b,false)}}else{this.onmousewheel=b}},teardown:function(){if(this.removeEventListener){for(var d=a.length;d;){this.removeEventListener(a[--d],b,false)}}else{this.onmousewheel=null}}};c.fn.extend({mousewheel:function(d){return d?this.bind("mousewheel",d):this.trigger("mousewheel")},unmousewheel:function(d){return this.unbind("mousewheel",d)}});function b(f){var d=[].slice.call(arguments,1),g=0,e=true;f=c.event.fix(f||window.event);f.type="mousewheel";if(f.wheelDelta){g=f.wheelDelta/120}if(f.detail){g=-f.detail/3}d.unshift(f,g);return c.event.handle.apply(this,d)}})(jQuery);
+
+(function($) {
+
+var types = ['DOMMouseScroll', 'mousewheel'];
+
+if ($.event.fixHooks) {
+    for ( var i=types.length; i; ) {
+        $.event.fixHooks[ types[--i] ] = $.event.mouseHooks;
+    }
+}
+
+$.event.special.mousewheel = {
+    setup: function() {
+        if ( this.addEventListener ) {
+            for ( var i=types.length; i; ) {
+                this.addEventListener( types[--i], handler, false );
+            }
+        } else {
+            this.onmousewheel = handler;
+        }
+    },
+    
+    teardown: function() {
+        if ( this.removeEventListener ) {
+            for ( var i=types.length; i; ) {
+                this.removeEventListener( types[--i], handler, false );
+            }
+        } else {
+            this.onmousewheel = null;
+        }
+    }
+};
+
+$.fn.extend({
+    mousewheel: function(fn) {
+        return fn ? this.bind("mousewheel", fn) : this.trigger("mousewheel");
+    },
+    
+    unmousewheel: function(fn) {
+        return this.unbind("mousewheel", fn);
+    }
+});
 
 
+function handler(event) {
+    var orgEvent = event || window.event, args = [].slice.call( arguments, 1 ), delta = 0, returnValue = true, deltaX = 0, deltaY = 0;
+    event = $.event.fix(orgEvent);
+    event.type = "mousewheel";
+    
+    // Old school scrollwheel delta
+    if ( orgEvent.wheelDelta ) { delta = orgEvent.wheelDelta/120; }
+    if ( orgEvent.detail     ) { delta = -orgEvent.detail/3; }
+    
+    // New school multidimensional scroll (touchpads) deltas
+    deltaY = delta;
+    
+    // Gecko
+    if ( orgEvent.axis !== undefined && orgEvent.axis === orgEvent.HORIZONTAL_AXIS ) {
+        deltaY = 0;
+        deltaX = -1*delta;
+    }
+    
+    // Webkit
+    if ( orgEvent.wheelDeltaY !== undefined ) { deltaY = orgEvent.wheelDeltaY/120; }
+    if ( orgEvent.wheelDeltaX !== undefined ) { deltaX = -1*orgEvent.wheelDeltaX/120; }
+    
+    // Add event and delta to the front of the arguments
+    args.unshift(event, delta, deltaX, deltaY);
+    
+    return ($.event.dispatch || $.event.handle).apply(this, args);
+}
+
+})(jQuery);
 
 
 (function ($) {
