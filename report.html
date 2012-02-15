@@ -440,7 +440,7 @@ and graphs of edits, etc over time.
             var str = (val / 1000000).toFixed(1).replace(".0", "");
             if(str == "0")
 		return "";
-            return str + " MB";
+            return str + " M";
 	  }
         $.plot($("#denton_page_content_over_time"),
                denton_page_content_over_time,
@@ -505,7 +505,7 @@ $(function () {
             var str = (val / 1000000).toFixed(1).replace(".0", "");
             if(str == "0")
 		return "";
-            return str + " MB";
+            return str + " M";
 	  }
         $.plot($("#triangle_page_content_over_time"),
                triangle_page_content_over_time,
