@@ -272,11 +272,11 @@ We knew that mapping should be at the heart of LocalWiki.  To that end, we devel
         $.plot($("#installs_over_time"),
                installs_over_time,
                { 
-                   'xaxes': [{'mode': 'time'}],
-                   'yaxes': [{'panRange': [0, null]}],
+                   'xaxes': [{'mode': 'time', tickLength: 0}],
+                   'yaxes': [{'panRange': [0, null], tickLength: 0}],
                    'series': {'lines': {'show': true, 'fill': true}},
-                   'zoom': {'interactive': true},
-                   'pan': {'interactive': true},
+                   'zoom': {'interactive': false},
+                   'pan': {'interactive': false},
                    'grid': {'backgroundColor': {'colors': ["#fff", "#eee"]}}
                }
         );
@@ -291,13 +291,12 @@ We knew that mapping should be at the heart of LocalWiki.  To that end, we devel
                     175+
                     <div class="type">Independent installs</div>
                   </div>
-                <div id="installs_over_time" style="width: 240px;
-                height: 220px;"></div>
+                  <div id="installs_over_time"></div>
                 </section>
                 <section class="details">
                   <p>Since our first major software release a few weeks
                   ago, our software has been installed
-                  <strong>over 175 times</strong> &mdash; already making us one
+                  <strong>over 175 times</strong> &mdash; already making LocalWiki one
                   of the most-installed Knight News Challenge projects
                   ever.
                   </p>
