@@ -200,22 +200,28 @@ footer {
     font-style: normal;
     font-size: 32px; }
 .item#software_overview {
-  background: #AD0918;
+  background: #f92b2b;
   padding: 350px 0 350px 0; }
   .item#software_overview .text {
     margin: 0 auto;
     padding: 0 100px;
-    font-family: "museo-sans",Helvetica,Arial,sans-serif;
+    font-family: "ff-meta-web-pro",Helvetica,Arial,sans-serif;
     text-align: left;
-    color: #DFC272;
+    color: white;
     width: 40em; }
   .item#software_overview h1 {
     color: #fff;
     padding-bottom: 0.5em;
-    font: 48px/48px "museo-sans",Helvetica,Arial,sans-serif;}
+    margin-bottom: 0.5em;
+    font-family: "chennai-slab",serif;
+    font-weight: 200;
+    border-bottom: 4px solid #ffc2c2;
+    font-style: normal;
+    font-size: 48px; }
   .item#software_overview p {
     line-height: 1.4;
     margin-bottom: 1em;
+    font-size: 16px;
   }
 .item#editing {
   background: #fff;
