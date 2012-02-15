@@ -247,7 +247,7 @@ footer {
     margin-top: 15px; }
 .item#page_diff {
   background: #f4f4f4;
-  padding: 350px 0 400px 0; }
+  padding: 350px 0 450px 0; }
   .item#page_diff .text {
     margin: 0 auto;
     padding: 0 100px;
@@ -263,12 +263,12 @@ footer {
     color: #333;
     font-size: 32px; }
   .item#page_diff img {
-    float: right;
+    float: left;
     box-shadow: 0 4px 8px #888888;
-    margin-right: 100px;
+    margin-left: 100px;
     margin-top: 15px; }
 .item#page_result {
-  background: #fcfaf2;
+  background: #76ff6c;
   padding: 350px 0 350px 0; }
   .item#page_result .text {
     margin: 0 auto;
@@ -276,14 +276,22 @@ footer {
     width: 820px; }
   .item#page_result h1 {
     color: #333;
-    font: 400 80px/120px "vollkorn";
-    margin: 0 0 10px 0;
-    text-indent: -6px; }
+    line-height: 1;
+    font-family: "proxima-nova",sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    /*border-bottom: 8px solid #f4f4f4;*/
+    font-size: 52px; }
   .item#page_result h2 {
     color: #333;
-    font: 400 40px/60px "vollkorn";
-    margin: 0 0 10px 0;
-    text-indent: -6px; }
+    line-height: 1.3;
+    font-family: "proxima-nova",sans-serif;
+    font-weight: 700;
+    margin-top: 0.5em;
+    background-color: white;
+    padding: 1em;
+    font-style: normal;
+    font-size: 32px; }
 .item#mapping {
   text-align:center;
   background: #fff;
