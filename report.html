@@ -442,6 +442,12 @@ and graphs of edits, etc over time.
 		return "";
             return str + " M";
 	  }
+        var filtered = $.map(denton_page_content_over_time[0].data, function(elem, index){
+                if(index%6 == 0)
+		    return [elem];
+                return null;	
+	});
+	denton_page_content_over_time[0].data = filtered;
         $.plot($("#denton_page_content_over_time"),
                denton_page_content_over_time,
                { 
