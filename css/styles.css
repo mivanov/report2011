@@ -294,81 +294,56 @@ footer {
     font-size: 32px; }
 .item#mapping {
   text-align:center;
-  background: #fff;
-  padding: 350px 0 350px 0; }
+  padding: 350px 0 350px 0;
+  background-image: url(../img/bg_map.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0%; }
   .item#mapping .text {
     text-align:left;
     margin: 0 auto;
-    padding: 0 100px;
-    font-family: "museo-sans",Helvetica,Arial,sans-serif;
+    padding: 1.6em 2.2em 2em 2.2em;
+    font-family: "ff-meta-web-pro", Arial, "Helvetica Neue", sans-serif;
     color: #333;
+    background-color: white;
     width: 700px; }
   .item#mapping h1 {
     color: #333;
-    font: 100 72px/72px "lato";
-    letter-spacing: -2px;
-    margin-bottom: 0.3em;
-    text-transform: uppercase; }
+    font-family: "proxima-nova",sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 42px;
+    margin-top: 0;
+    margin-bottom: 0.5em; }
   .item#mapping p {
     line-height: 1.4; }
   .item#mapping img {
-    margin-top: 1em;
-    box-shadow: 0 4px 8px #888888;
+    float: left;
+    margin-top: 0.07em;
+    margin-right: 0.5em;
    }
-.item#map_example {
-  background: #fff;
-  padding: 350px 0 350px 0; }
-  .item#map_example .text {
+.item.map_example {
+  background: #f4f4f4;
+  min-height: 400px;
+  padding: 250px 0 250px 0; }
+  .item.map_example .text {
     margin: 0 auto;
     padding: 0 100px;
-    text-align: center;
+    text-align: left;
     color: #333;
     width: 800; }
-  .item#map_example h1 {
+  .item.map_example h1 {
     color: #333;
-    font: 100 72px/72px "lato";
-    letter-spacing: -2px;
-    text-transform: uppercase; }
-  .item#map_example img {
+    padding: 1em;
+    background-color: white;
+    font-family: "proxima-nova",sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px; }
+  .item.map_example img {
     float: left;
     box-shadow: 0 4px 8px #888888;
-    margin-left: 20px; }
-.item#map_example_2 {
-  background: #fff;
-  padding: 350px 0 350px 0; }
-  .item#map_example_2 .text {
-    margin: 0 auto;
-    padding: 0 100px;
-    text-align: center;
-    color: #333;
-    width: 800; }
-  .item#map_example_2 h1 {
-    color: #333;
-    font: 100 72px/72px "lato";
-    letter-spacing: -2px;
-    text-transform: uppercase; }
-  .item#map_example_2 img {
-    float: right;
-    box-shadow: 0 4px 8px #888888;
-    margin-left: 20px; }
-.item#map_diff {
-  background: #fff;
-  padding: 350px 0 350px 0; }
-  .item#map_diff .text {
-    margin: 0 auto;
-    padding: 0 100px;
-    text-align: center;
-    color: #333;
-    width: 800; }
-  .item#map_diff h1 {
-    color: #333;
-    font: 100 72px/72px "lato";
-    letter-spacing: -2px;
-    text-transform: uppercase; }
-  .item#map_diff img {
-    float: left;
-    box-shadow: 0 4px 8px #888888;
-    margin-left: 20px; }
+    margin-left: 100px;
+    margin-top: 15px; }
 .item#talks {
   background: #0ac5f4;
   font-family: "museo-sans",Helvetica,Arial,sans-serif;
