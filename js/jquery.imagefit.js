@@ -17,9 +17,12 @@
 				$(img)
 					.width('100%').each(function()
 					{
-						$(this).height(Math.round(
-							$(this).attr('startheight')*($(this).width()/$(this).attr('startwidth')))
-						);
+						var newHeight = Math.round($(this).attr('startheight')*($(this).width()/$(this).attr('startwidth')))
+						$(this).height(newHeight);
+						if(options && options.resizeParent)
+						{
+							$(this).parent().height(newHeight);
+						}
 					})
 				}
 		};

@@ -396,6 +396,12 @@ footer {
   color: #333;
   font-family: "open sans";
   padding: 350px 0 350px 0; }
+  .item#numbers_code .number{
+    font-size: 340%;
+   }
+  .item#numbers_code .number .type{
+    font-size: 40%;
+  }
   .item#numbers_code .text {
     margin: 0 auto;
     padding: 0 100px;
