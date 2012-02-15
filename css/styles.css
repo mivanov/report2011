@@ -64,7 +64,7 @@ strong {
   height: 0; }
 
 body {
-  background: #c8c8c8;
+  background: #f4f4f4;
   font-family: "helvetica neue", helvetica, arial, sans-serif; }
 
 a {
@@ -167,20 +167,17 @@ footer {
   .item#overview .details p {
     padding-bottom: 1em; }
   .item#overview h1 {
-    color: #222;
-    font: 800 64px/64px "open sans";
-    margin: 0 0 28px 0;
+    color: #424242;
+    font-family: "myriad-pro",sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    margin: 0 0 0.4em 0;
     padding-bottom: 0.4em;
-    border-bottom: 3px solid #222;
-    text-align: center;
-    text-transform: uppercase;
+    border-bottom: 8px solid #f4f4f4;
+    text-align: left;
     width: 700px; }
-    .item#overview h1 span {
-      font: 400 60px/60px "gentium book basic";
-      font-style: italic;
-      text-transform: none; }
-      .item#overview h1 span.kern {
-        margin: 0 4px 0 -10px; }
+    .item#overview h1 span {}
   .item#overview p {
     color: #222;
     font: 400 16px/24px "gentium book basic";
