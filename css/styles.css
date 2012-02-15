@@ -635,8 +635,8 @@ footer {
     padding: 0 0 0 0;
     text-transform: uppercase; }
 .item#look_inside_denton_detail {
-  background: #d800ff;
-  padding: 350px 0 350px 0; }
+  background: #eeeeee;
+  padding: 200px 0 200px 0; }
   .item#look_inside_denton_detail .text {
     margin: 0 auto;
     padding: 0 100px;
@@ -655,7 +655,34 @@ footer {
      margin-bottom: 1em; }
   #denton_page_content_over_time {
      height: 300px;
-     width: 400px; }
+     width: 400px;
+     margin-bottom: 2em;
+  }
+  #look_inside_denton_detail .stats {
+     padding: 1em 100px;
+     text-align: center;
+     float: right;
+     width: 420px;
+     padding-left: 1em;
+     margin-bottom: 4em;
+  }
+  #look_inside_denton_detail .stats h2 {
+     text-align: left;
+     margin: 0 0 0.5em 2em;
+     font-size: 24px;
+     font-weight: heavy;
+  }
+  #look_inside_denton_detail .stats .number {
+     font-size: 36px;
+     margin: 0;
+     margin-bottom: 1em;
+  }
+  #look_inside_denton_detail .stats .type {
+     margin-right: auto;
+     margin-left: auto;
+     width: 6em;
+     font-size: 20px;
+  }
 .item#look_inside_triangle_intro {
   /*background: url(../img/triangle_meetup_large.jpg);
   background-repeat: no-repeat;
@@ -681,8 +708,8 @@ footer {
     padding: 0 0 0 0;
     text-transform: uppercase; }
 .item#look_inside_triangle_detail {
-  background: #d800ff;
-  padding: 350px 0 350px 0; }
+  background: #eeeeee;
+  padding: 200px 0 200px 0; }
   .item#look_inside_triangle_detail .text {
     margin: 0 auto;
     padding: 0 100px;
@@ -700,8 +727,35 @@ footer {
      line-height: 1.4;
      margin-bottom: 1em; }
   #triangle_page_content_over_time {
-     height: 400px;
-     width: 400px; }
+     height: 300px;
+     width: 400px;
+     margin-bottom: 2em;
+  }
+  #look_inside_triangle_detail .stats {
+     padding: 1em 100px;
+     text-align: center;
+     float: right;
+     width: 420px;
+     padding-left: 1em;
+     margin-bottom: 4em;
+  }
+  #look_inside_triangle_detail .stats h2 {
+     text-align: left;
+     margin: 0 0 0.5em 2em;
+     font-size: 24px;
+     font-weight: heavy;
+  }
+  #look_inside_triangle_detail .stats .number {
+     font-size: 36px;
+     margin: 0;
+     margin-bottom: 1em;
+  }
+  #look_inside_triangle_detail .stats .type {
+     margin-right: auto;
+     margin-left: auto;
+     width: 6em;
+     font-size: 20px;
+  }
 
 .item#where_helping {
   background: #fcfaf2;
@@ -716,14 +770,16 @@ footer {
   .item#where_helping h1 {
     color: #333;
     font: 800 64px/64px "open sans";
-    margin-bottom: 1em;
+    margin-bottom: 0.3em;
     text-transform: uppercase; }
     .item#where_helping h1 span {
       font: 400 60px/60px "gentium book basic";
       font-style: italic;
       text-transform: none; }
   .item#where_helping img {
-    border: 3px solid #7c7c7c; }
+    border: 3px solid #7c7c7c;
+    margin: 1em;
+  }
 .item#donors {
   background: #AD0918;
   padding: 350px 0 350px 0; }
@@ -1006,3 +1062,6 @@ footer {
     font: 400 14px/18px "pt serif";
     text-align: justify;
     text-indent: 14px; }
+div.tickLabel {
+    font-size: 10px;
+}
