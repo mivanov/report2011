@@ -570,7 +570,7 @@ footer {
       margin-top: 0.25em;
     }
 .item#look_inside_dwiki_2 {
-  background: #d800ff;
+  background: #eee;
   padding: 350px 0 350px 0; }
   .item#look_inside_dwiki_2 .text {
     margin: 0 auto;
@@ -588,6 +588,29 @@ footer {
   .item#look_inside_dwiki_2 p {
      line-height: 1.4;
      margin-bottom: 1em; }
+  #look_inside_dwiki_2 .stats {
+     text-align: center;
+     float: right;
+     width: 20em;
+     padding-left: 1em;
+     margin-bottom: 4em;
+  }
+  #look_inside_dwiki_2 .stats h2 {
+     font-size: 24px;
+     font-weight: heavy;
+  }
+  #look_inside_dwiki_2 .stats .number {
+     width: 100%;
+     font-size: 36px;
+     margin: 0;
+     margin-bottom: 1em;
+  }
+  #look_inside_dwiki_2 .stats .type {
+     margin-right: auto;
+     margin-left: auto;
+     width: 6em;
+     font-size: 20px;
+  }
 .item#look_inside_denton_intro {
   /*background: url(../img/dentonwiki_people.jpg);
   background-repeat: no-repeat;
@@ -631,7 +654,7 @@ footer {
      line-height: 1.4;
      margin-bottom: 1em; }
   #denton_page_content_over_time {
-     height: 400px;
+     height: 300px;
      width: 400px; }
 .item#look_inside_triangle_intro {
   /*background: url(../img/triangle_meetup_large.jpg);
