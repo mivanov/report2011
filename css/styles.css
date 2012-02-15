@@ -656,6 +656,7 @@ footer {
   #denton_page_content_over_time {
      height: 300px;
      width: 400px;
+     margin-left: 0.8em;
      margin-bottom: 2em;
   }
   #look_inside_denton_detail .stats {
@@ -729,6 +730,7 @@ footer {
   #triangle_page_content_over_time {
      height: 300px;
      width: 400px;
+     margin-left: 0.8em;
      margin-bottom: 2em;
   }
   #look_inside_triangle_detail .stats {
