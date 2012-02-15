@@ -285,9 +285,11 @@ footer {
     margin: 0 0 10px 0;
     text-indent: -6px; }
 .item#mapping {
+  text-align:center;
   background: #fff;
   padding: 350px 0 350px 0; }
   .item#mapping .text {
+    text-align:left;
     margin: 0 auto;
     padding: 0 100px;
     font-family: "museo-sans",Helvetica,Arial,sans-serif;
@@ -302,8 +304,9 @@ footer {
   .item#mapping p {
     line-height: 1.4; }
   .item#mapping img {
-    margin-left: 13px;
-    margin-right: 13px;}
+    margin-top: 1em;
+    box-shadow: 0 4px 8px #888888;
+   }
 .item#map_example {
   background: #fff;
   padding: 350px 0 350px 0; }
