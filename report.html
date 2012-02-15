@@ -445,8 +445,14 @@ and graphs of edits, etc over time.
             var str = (val / 1000000).toFixed(1).replace(".0", "");
             if(str == "0")
 		return "";
-            return str + " MB";
+            return str + " M";
 	  }
+        var filtered = $.map(denton_page_content_over_time[0].data, function(elem, index){
+                if(index%6 == 0)
+		    return [elem];
+                return null;	
+	});
+	denton_page_content_over_time[0].data = filtered;
         $.plot($("#denton_page_content_over_time"),
                denton_page_content_over_time,
                { 
@@ -510,7 +516,7 @@ $(function () {
             var str = (val / 1000000).toFixed(1).replace(".0", "");
             if(str == "0")
 		return "";
-            return str + " MB";
+            return str + " M";
 	  }
         $.plot($("#triangle_page_content_over_time"),
                triangle_page_content_over_time,
