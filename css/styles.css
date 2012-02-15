@@ -183,20 +183,22 @@ footer {
     font: 400 16px/24px "gentium book basic";
     margin: 0; }
 .item#software_intro {
-  background: #0ac5f4;
-  padding: 350px 0 350px 0; }
+  background: #fdf984;
+  padding: 380px 0 380px 0; }
   .item#software_intro .text {
     margin: 0 auto;
     padding: 0 100px;
     text-align: center;
     width: 800; }
   .item#software_intro h1 {
-    color: #fff;
-    font: 100 72px/72px "lato";
-    letter-spacing: -2px;
-    text-transform: uppercase; }
-    .item#software_intro h1 .kern {
-      margin: 0 0 0 8px; }
+    color: #3f3f3f;
+    background-color: white;
+    padding: 1em;
+    line-height: 1;
+    font-family: "proxima-nova",sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px; }
 .item#software_overview {
   background: #AD0918;
   padding: 350px 0 350px 0; }
