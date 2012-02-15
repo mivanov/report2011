@@ -434,12 +434,15 @@ footer {
     text-align: center;
     width: 800; }
   .item#numbers_installs #installs_over_time {
+    width: 400px;
+    height: 300px;
     font-size: 10px;
     margin-top: 14px;
     padding-right: 10px;
     margin-left: auto;
     margin-right: auto; }
   .item#numbers_installs .stats {
+    float: left;
     font-size: 40px;
     margin-bottom: 0; }
     .item#numbers_installs .stats .type {
@@ -448,12 +451,14 @@ footer {
       margin-bottom: 10px;
       margin-right: 0; }
   .item#numbers_installs .details {
+    padding: 1em;
+    margin-top: 7em;
+    margin-left: 410px;
     font-family: "museo-sans",Helvetica,Arial,sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 1.5;
     color: #333;
     max-width: 30em;
-    background-color: white;
     height: 200px;
     text-align: left; }
   .item#numbers_installs h1 {
