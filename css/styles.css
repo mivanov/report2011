@@ -397,6 +397,7 @@ a {
     height: 900px;
     overflow: hidden;
     opacity: 0.2;
+    word-wrap: break-word;
   }
   .item#numbers_intro .text {
     position: absolute;
@@ -468,38 +469,35 @@ a {
   color: #333;
   padding: 350px 0 350px 0; }
   .item#numbers_installs .text {
-    margin: 0 auto;
-    padding: 0 100px;
-    text-align: center;
-    width: 800; }
-  .item#numbers_installs #installs_over_time {
-    width: 400px;
-    height: 300px;
-    font-size: 10px;
-    margin-top: 14px;
-    padding-right: 10px;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    max-width: 60em;
+    padding: 0 100px;
+    text-align: center;}
+  .item#numbers_installs #installs_over_time {
+    width: 300px;
+    height: 250px;
+    font-size: 10px;
+    float: left;}
   .item#numbers_installs .stats {
-    float: left;
-    font-size: 40px;
-    margin-bottom: 0; }
+    max-width: 680px;
+    margin: 0 auto;}
     .item#numbers_installs .stats .type {
       font-size: 20px; }
     .item#numbers_installs .number {
-      margin-bottom: 10px;
-      margin-right: 0; }
+      margin: 0;
+      padding: 0.4em 0.3em 0.3em 0.3em;
+      float: right;
+      font-size: 120px;
+    }
   .item#numbers_installs .details {
-    padding: 1em;
-    margin-top: 7em;
-    margin-left: 410px;
-    font-family: "ff-meta-web-pro", Arial, "Helvetica Neue", sans-serif;
-    font-size: 24px;
+    clear: both;
+    margin: 0 auto;
+    padding: 2em 0 0 0;
     line-height: 1.5;
     color: #333;
-    max-width: 30em;
-    height: 200px;
-    text-align: left; }
+    max-width: 680px;
+    text-align: center; }
   .item#numbers_installs h1 {
     color: #333;
     font-family: "myriad-pro",sans-serif;
@@ -612,11 +610,12 @@ a {
     }
 .item#look_inside_dwiki_2 {
   background: #f4f4f4;
-  padding: 350px 0 350px 0; }
+  padding: 350px 0 350px 0;}
   .item#look_inside_dwiki_2 .text {
-    margin: 0 0 0 6em;
-    padding: 0 100px;
-    max-width: 55em;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 0 4em;
+    max-width:55em;
     text-align: left;
     font-size: 16px;
     font-family: "ff-meta-web-pro", Arial, "Helvetica Neue", sans-serif; }
@@ -689,8 +688,9 @@ a {
   background: #f4f4f4;
   padding: 200px 0 200px 0; }
   .item#look_inside_denton_detail .text {
-    margin: 0 0 0 6em;
-    padding: 0 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 4em;
     font-size: 16px;
     max-width: 55em;
     text-align: left;
@@ -716,13 +716,11 @@ a {
      color: #383838;
      font-size: 12px;
      font-family: "open-sans", sans-serif;
-     margin-left: 3em;
-     padding: 1em 100px;
      text-align: center;
      float: right;
      width: 420px;
      padding-left: 1em;
-     margin-bottom: 4em;
+     margin-bottom: 3em;
      margin-left: 3em;
   }
   #look_inside_denton_detail .stats h2 {
@@ -777,8 +775,9 @@ a {
   background: #f4f4f4;
   padding: 200px 0 200px 0; }
   .item#look_inside_triangle_detail .text {
-    margin: 0 0 0 6em;
-    padding: 0 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 4em;
     font-size: 16px;
     max-width: 55em;
     text-align: left;
@@ -804,13 +803,11 @@ a {
      color: #383838;
      font-size: 12px;
      font-family: "open-sans", sans-serif;
-     margin-left: 3em;
-     padding: 1em 100px;
      text-align: center;
      float: right;
      width: 420px;
      padding-left: 1em;
-     margin-bottom: 4em;
+     margin-bottom: 3em;
      margin-left: 3em;
   }
   #look_inside_triangle_detail .stats h2 {
@@ -925,14 +922,24 @@ a {
   font-family: "open-sans", sans-serif;
   padding: 350px 0 350px 0; }
   .item#donate .text {
-    margin: 0 auto;
-    padding: 0 100px;
     text-align: center;
-    width: 800; }
+  }
+  .item#donate .donate_call {
+    margin: 2em auto;
+    line-height: 1.5;
+    padding: 0 4em;
+    max-width: 540px;
+  }
+  .item#donate .nonprofit {
+    margin: 2em auto;
+    max-width: 600px;
+    padding: 0 4em;
+    font-size: 80%;
+  }
   .item#donate h1 {
     color: #333;
     font: 800 64px/64px "open-sans", sans-serif;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     text-transform: uppercase; }
     .item#donate h1 span {
       font: 400 64px/64px "gentium book basic";
@@ -948,6 +955,9 @@ a {
       margin-left: auto;
       margin-right: auto;
       margin-top: 2em;
+   }
+   .item#donate input[type="text"]{
+      margin: 0.2em;
    }
    .item#donate div.widget-inner>div.widget-item {
 	display: none;	
