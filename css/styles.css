@@ -112,6 +112,7 @@ a {
   .item#title h2 {
     color: #222;
     font: 300 18px/24px "open-sans", sans-serif;
+    padding-bottom: 6px;
     margin: 0 0 36px 0;
     width: 650px; }
     .item#title h2 a:hover {
