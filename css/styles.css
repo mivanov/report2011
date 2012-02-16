@@ -244,6 +244,8 @@ a {
     font-size: 32px; }
   .item#editing img {
     float: left;
+    -moz-box-shadow: 0 4px 8px #888888;
+    -webkit-box-shadow: 0 4px 8px #888888;
     box-shadow: 0 4px 8px #888888;
     margin-left: 100px;
     margin-top: 20px; }
@@ -266,6 +268,8 @@ a {
     font-size: 32px; }
   .item#page_diff img {
     float: left;
+    -moz-box-shadow: 0 4px 8px #888888;
+    -webkit-box-shadow: 0 4px 8px #888888;
     box-shadow: 0 4px 8px #888888;
     margin-left: 100px;
     margin-top: 20px; }
@@ -343,6 +347,8 @@ a {
     font-size: 32px; }
   .item.map_example img {
     float: left;
+    -moz-box-shadow: 0 4px 8px #888888;
+    -webkit-box-shadow: 0 4px 8px #888888;
     box-shadow: 0 4px 8px #888888;
     margin-left: 100px;
     margin-top: 20px; }
