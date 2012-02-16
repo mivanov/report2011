@@ -346,7 +346,7 @@ footer {
     margin-top: 15px; }
 .item#talks {
   background: #0ac5f4;
-  font-family: "museo-sans",Helvetica,Arial,sans-serif;
+  font-family: "ff-meta-web-pro", Arial, "Helvetica Neue", sans-serif;
   padding: 350px 0 350px 0; }
   .item#talks .text {
     margin: 0 auto;
@@ -355,35 +355,58 @@ footer {
     width: 800; }
   .item#talks h1 {
     color: #fff;
-    font: 100 72px/72px "lato";
-    letter-spacing: -2px;
-    text-transform: uppercase; }
-    .item#talks h1 .kern {
-      margin: 0 0 0 8px; }
+    font-family: "proxima-nova",sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    margin-bottom: 1em;
+    font-size: 42px; }
   .item#talks ul {
     text-align: left;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1em;}
   .item#talks li {
-    display: inline;
-    color: white;
-    padding: 0.1em 0.2em 0.1em 0.2em;
-    background-color: #333;
+    display: block;
+    color: #333;
+    padding: 0.3em 0.5em 0.2em 0.5em;
+    background-color: white;
+    margin-bottom: 1em;
     margin-right: 0.5em;
-    line-height: 1.7;}
+    line-height: 2;}
 .item#numbers_intro {
-  background: #d800ff;
-  padding: 350px 0 350px 0; }
+  background: #d74eff;
+  height: 900px; }
+  .item#numbers_intro .bg_text {
+    margin: 0;
+    font-family: "proxima-nova",sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 100px;
+    color: #333;
+    height: 900px;
+    overflow: hidden;
+    opacity: 0.2;
+  }
   .item#numbers_intro .text {
-    margin: 0 auto;
-    padding: 0 100px;
-    text-align: center;
-    width: 800; }
+    position: absolute;
+    margin-top: -460px;
+    width: 100%;
+    padding: 0;
+    text-align: center; }
   .item#numbers_intro h1 {
-    color: #fff;
-    font: 800 64px/64px "open sans";
-    text-transform: uppercase; }
+    color: #333;
+    padding: 0.3em 0.8em 0.3em 0.8em;
+    display: inline;
+    width: auto;
+    background-color: white;
+    font-family: "myriad-pro",sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 80px; }
     .item#numbers_intro h1 span {
-      font: 400 60px/60px "gentium book basic";
+      font: 400 64px/64px "gentium book basic";
       font-style: italic;
       text-transform: none; }
 .item#numbers_code {
@@ -404,11 +427,14 @@ footer {
     width: 800; }
   .item#numbers_code h1 {
     color: #333;
-    font: 800 64px/64px "open sans";
+    font-family: "myriad-pro",sans-serif;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
     margin-bottom: 1em;
     text-transform: uppercase; }
     .item#numbers_code h1 span {
-      font: 400 60px/60px "gentium book basic";
+      font: 400 64px/64px "gentium book basic";
       font-style: italic;
       text-transform: none; }
 .item#numbers_code_detail {
@@ -421,12 +447,15 @@ footer {
     width: 800; }
   .item#numbers_code_detail h1 {
     color: #fff;
-    font: 800 64px/64px "open sans";
+    font-family: "myriad-pro",sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
     text-transform: uppercase; }
 .item#numbers_installs {
   background: #fcfaf2;
   color: #333;
-  font-family: "open sans";
+  
   padding: 350px 0 350px 0; }
   .item#numbers_installs .text {
     margin: 0 auto;
@@ -463,11 +492,14 @@ footer {
     text-align: left; }
   .item#numbers_installs h1 {
     color: #333;
-    font: 800 64px/64px "open sans";
+    font-family: "myriad-pro",sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
     margin-bottom: 1em;
     text-transform: uppercase; }
     .item#numbers_installs h1 span {
-      font: 400 60px/60px "gentium book basic";
+      font: 400 64px/64px "gentium book basic";
       font-style: italic;
       text-transform: none; }
 .item#numbers_traffic {
@@ -486,11 +518,14 @@ footer {
     font-size: 20px; }
   .item#numbers_traffic h1 {
     color: #333;
-    font: 800 64px/64px "open sans";
+    font-family: "myriad-pro",sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
     margin-bottom: 1em;
     text-transform: uppercase; }
     .item#numbers_traffic h1 span {
-      font: 400 60px/60px "gentium book basic";
+      font: 400 64px/64px "gentium book basic";
       font-style: italic;
       text-transform: none; }
 .item#look_inside_dwiki_intro {
@@ -570,7 +605,7 @@ footer {
     font: 800 64px/64px "open sans";
     text-transform: uppercase; }
     .item#look_inside_dwiki_2 h1 span {
-      font: 400 60px/60px "gentium book basic";
+      font: 400 64px/64px "gentium book basic";
       font-style: italic;
       text-transform: none; }
   .item#look_inside_dwiki_2 p {
@@ -635,7 +670,7 @@ footer {
     font: 800 64px/64px "open sans";
     text-transform: uppercase; }
     .item#look_inside_denton_detail h1 span {
-      font: 400 60px/60px "gentium book basic";
+      font: 400 64px/64px "gentium book basic";
       font-style: italic;
       text-transform: none; }
   .item#look_inside_denton_detail p {
@@ -709,7 +744,7 @@ footer {
     font: 800 64px/64px "open sans";
     text-transform: uppercase; }
     .item#look_inside_triangle_detail h1 span {
-      font: 400 60px/60px "gentium book basic";
+      font: 400 64px/64px "gentium book basic";
       font-style: italic;
       text-transform: none; }
   .item#look_inside_triangle_detail p {
@@ -763,7 +798,7 @@ footer {
     margin-bottom: 0.3em;
     text-transform: uppercase; }
     .item#where_helping h1 span {
-      font: 400 60px/60px "gentium book basic";
+      font: 400 64px/64px "gentium book basic";
       font-style: italic;
       text-transform: none; }
   .item#where_helping img {
@@ -838,7 +873,7 @@ footer {
     margin-bottom: 1em;
     text-transform: uppercase; }
     .item#donate h1 span {
-      font: 400 60px/60px "gentium book basic";
+      font: 400 64px/64px "gentium book basic";
       font-style: italic;
       text-transform: none; }
   .item#donate form {
