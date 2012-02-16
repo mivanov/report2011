@@ -149,7 +149,8 @@ a {
     margin: 0 auto;
     padding: 100px;
     background-color: white;
-    width: 820px; }
+    text-align: center;
+    max-width: 46em; }
   .item#mission h1 {
     color: #333;
     font-family: "ff-meta-web-pro", Arial, "Helvetica Neue", sans-serif;
@@ -279,8 +280,7 @@ a {
   padding: 350px 0 350px 0; }
   .item#page_result .text {
     margin: 0 auto;
-    padding: 0 100px;
-    width: 820px; }
+    padding: 0 100px; }
   .item#page_result h1 {
     color: #333;
     line-height: 1;
@@ -879,7 +879,7 @@ a {
     font-family: "ff-meta-web-pro", Arial, "Helvetica Neue", sans-serif;
     text-align: left;
     color: #DFC272;
-    width: 50em; }
+    max-width: 50em; }
   .item#donors h1 {
     margin: auto;
     width: 806px;
