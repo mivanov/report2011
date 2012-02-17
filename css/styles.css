@@ -229,13 +229,21 @@ a {
   }
 .item#editing {
   background: #f4f4f4;
-  padding: 350px 0 350px 0; }
+  padding: 350px 0 0 0; }
   .item#editing .text {
     margin: 0 auto;
     padding: 0 100px;
     text-align: left;
     color: #333;
     width: 800; }
+  .item#editing .description {
+    font-family: "ff-meta-web-pro", Arial, "Helvetica Neue", sans-serif;
+    padding-top: 2em;
+    margin-left: 100px;
+    line-height: 1.6;
+    clear: left;
+    max-width: 50em;
+  }
   .item#editing h1 {
     color: #333;
     padding: 1em;
@@ -253,7 +261,7 @@ a {
     margin-top: 30px; }
 .item#page_diff {
   background: #f4f4f4;
-  padding: 350px 0 450px 0; }
+  padding: 250px 0 150px 0; }
   .item#page_diff .text {
     margin: 0 auto;
     padding: 0 100px;
@@ -263,6 +271,14 @@ a {
     font-style: normal;
     color: #333;
     width: 800; }
+  .item#page_diff .description {
+    font-family: "ff-meta-web-pro", Arial, "Helvetica Neue", sans-serif;
+    padding-top: 2em;
+    margin-left: 100px;
+    line-height: 1.6;
+    clear: left;
+    max-width: 50em;
+  }
   .item#page_diff h1 {
     padding: 1em;
     background-color: white;
@@ -332,13 +348,21 @@ a {
 .item.map_example {
   background: #f4f4f4;
   min-height: 400px;
-  padding: 250px 0 250px 0; }
+  padding: 250px 0 50px 0; }
   .item.map_example .text {
     margin: 0 auto;
     padding: 0 100px;
     text-align: left;
     color: #333;
     width: 800; }
+  .item.map_example .description {
+    font-family: "ff-meta-web-pro", Arial, "Helvetica Neue", sans-serif;
+    padding-top: 2em;
+    margin-left: 100px;
+    line-height: 1.6;
+    clear: left;
+    max-width: 50em;
+  }
   .item.map_example h1 {
     color: #333;
     padding: 1em;
@@ -354,6 +378,9 @@ a {
     box-shadow: 0 4px 8px #888888;
     margin-left: 100px;
     margin-top: 30px; }
+#mapping_items .item:last-child {
+  padding-bottom: 100px;
+}
 .item#talks {
   background: #0ac5f4;
   font-family: "ff-meta-web-pro", Arial, "Helvetica Neue", sans-serif;
