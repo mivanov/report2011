@@ -1930,7 +1930,17 @@ $(function () {
               <p class="donate_call">Like what we&rsquo;ve accomplished in only our first year? We&rsquo;re just getting warmed up! You can help us do even bigger things by donating.
               </p>
               <p>
-                <a class="wepay-widget" href="https://www.wepay.com/donations/169279?widget_type=donations&amp;widget_donation_id=169279&amp;widget_auth_token=55d302550a55b5e79acd115ffab13c0e36db8e4e&amp;widget_show_description=0&amp;widget_show_thermometer=0&amp;widget_show_donations=1">Donate to The LocalWiki Project<script id="wepay-widget_script" type="text/javascript" src="https://www.wepay.com/min/js/widget.wepay.js"></script></a>
+                <a class="wepay-widget" href="https://www.wepay.com/donations/169279?widget_type=donations&amp;widget_donation_id=169279&amp;widget_auth_token=55d302550a55b5e79acd115ffab13c0e36db8e4e&amp;widget_show_description=0&amp;widget_show_thermometer=0&amp;widget_show_donations=1">Donate to The LocalWiki Project<script id="wepay-widget_script" type="text/javascript" src="https://www.wepay.com/min/js/widget.wepay.js"></script><script type="text/javascript">
+// The widget is broken in Firefox, fix it here
+var old_method = WePay.donation_amount_custom_change;
+var focusing = false;
+WePay.donation_amount_custom_change=function(amount){
+	focusing = true;
+        var focus = function(){ if(focusing){$(amount).focus(); focusing = false;} };
+	setTimeout(focus, 200);
+	return old_method(amount);
+};
+</script></a>
               </p>
               <p class="nonprofit">We are a 501(c)(3) nonprofit working to bring collaborative local media to every community.
               </p>
